@@ -52,6 +52,22 @@ ScreenFlow utilizes a hybrid technology stack to bypass high-level operating sys
 
 *Note: On first startup, the application compiles `MonitorController.cs` automatically. You will see ScreenFlow's flat-screen tray icon appear in your taskbar.*
 
+### Packaging & Installer / Creación del Instalador
+
+If you want to package the application into a standalone installer (`.exe`) that sets up shortcuts automatically:
+Si deseas empaquetar la aplicación en un instalador independiente (`.exe`) que cree accesos directos automáticamente:
+
+1. **Build the installer / Generar el instalador**:
+   ```bash
+   npm run dist
+   ```
+2. **Locate the file / Ubicar el archivo**:
+   The installer will be generated inside the `dist/` directory as `ScreenFlow Setup 1.0.0.exe`.
+   El instalador se generará en la carpeta `dist/` con el nombre `ScreenFlow Setup 1.0.0.exe`.
+3. **Run the installer / Ejecutar el instalador**:
+   Run the setup executable to install the application. It will automatically create a desktop shortcut and a start menu entry.
+   Ejecuta el instalador para instalar la aplicación. Se creará automáticamente un acceso directo en el escritorio y en el menú de inicio para mayor comodidad de los usuarios.
+
 ---
 
 ## Configuration & Use
