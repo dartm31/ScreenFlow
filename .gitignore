@@ -2,4 +2,6 @@ node_modules/
 MonitorController.exe
 config.json
 .system_generated/
+dist/
+dist-*
 *.log

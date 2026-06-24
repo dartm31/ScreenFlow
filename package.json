@@ -4,13 +4,44 @@
   "description": "ScreenFlow - Monitor power and brightness manager for Windows",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --win"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "electron": "^33.0.0"
+    "electron": "^33.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.screenflow.app",
+    "productName": "ScreenFlow",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/assets/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "ScreenFlow"
+    },
+    "asar": true,
+    "asarUnpack": [
+      "MonitorController.exe",
+      "MonitorController.cs"
+    ],
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "MonitorController.exe",
+      "MonitorController.cs",
+      "package.json"
+    ]
   }
 }
