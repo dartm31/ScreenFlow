@@ -1,0 +1,16 @@
+{
+  "name": "screenflow",
+  "version": "1.0.0",
+  "description": "ScreenFlow - Monitor power and brightness manager for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

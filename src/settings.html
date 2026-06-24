@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self';">
+  <title>ScreenFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <img class="logo-img" src="assets/logo.png" alt="Logo">
+        <div class="logo-text">
+          <h1 data-i18n="title">Enfoque de Pantalla</h1>
+          <p data-i18n="subtitle">Control de brillo y apagado de monitores</p>
+        </div>
+      </div>
+      <button id="toggle-focus-btn" class="status-btn deactivated">
+        <span class="dot"></span> <span class="label" data-i18n="inactive">Inactivo</span>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-content">
+      <!-- Section: Monitor Layout -->
+      <section class="config-section">
+        <div class="section-header">
+          <h2 data-i18n="detectedMonitors">Monitores Detectados</h2>
+          <button id="refresh-monitors-btn" class="icon-btn" title="Refrescar">🔄</button>
+        </div>
+        
+        <div class="monitor-layout-container">
+          <div id="monitor-map" class="monitor-map">
+            <div class="loading-state" data-i18n="loadingScreens">Cargando pantallas...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Layout -->
+      <section class="config-section settings-container">
+        <!-- Focus Mode Dropdown -->
+        <div class="setting-row">
+          <label for="focus-mode-select" data-i18n="focusModeLabel">Modo de Apagado</label>
+          <select id="focus-mode-select">
+            <option value="hybrid" data-i18n="hybridMode">Híbrido (Recomendado)</option>
+            <option value="ddcci" data-i18n="ddcciMode">Solo DDC/CI (Hardware)</option>
+            <option value="overlay" data-i18n="overlayMode">Solo Superposición (Software)</option>
+          </select>
+        </div>
+
+        <!-- Dim Level Slider -->
+        <div class="setting-row" id="dim-level-wrapper">
+          <div class="row-labels">
+            <label data-i18n="dimLevel">Nivel de atenuación</label>
+            <span id="dim-val">100%</span>
+          </div>
+          <input type="range" id="dim-level" min="50" max="100" value="100">
+        </div>
+
+        <!-- Hotkey -->
+        <div class="setting-row">
+          <label for="hotkey-input" data-i18n="globalHotkey">Atajo de teclado global</label>
+          <div class="hotkey-wrapper">
+            <input type="text" id="hotkey-input" placeholder="..." readonly>
+            <button id="clear-hotkey-btn" class="text-btn">Borrar</button>
+          </div>
+        </div>
+
+        <!-- Language Select -->
+        <div class="setting-row">
+          <label for="language-select" data-i18n="languageLabel">Idioma / Language</label>
+          <select id="language-select">
+            <option value="auto" data-i18n="autoLang">System Default (Automático)</option>
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+
+        <!-- Checkboxes Stack -->
+        <div class="checkbox-row">
+          <label class="toggle-control">
+            <input type="checkbox" id="click-through-check">
+            <span class="slider"></span>
+            <span class="toggle-label" data-i18n="clickThrough">Hacer clic a través de pantallas atenuadas (Click-through)</span>
+          </label>
+
+          <label class="toggle-control">
+            <input type="checkbox" id="startup-check">
+            <span class="slider"></span>
+            <span class="toggle-label" data-i18n="startup">Iniciar con Windows</span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Actions -->
+    <footer class="app-footer">
+      <span id="toast-message" class="toast" data-i18n="savedSuccess">Cambios guardados con éxito</span>
+      <div class="footer-actions">
+        <button id="close-btn" class="btn secondary" data-i18n="close">Cerrar</button>
+        <button id="save-btn" class="btn primary" data-i18n="saveSettings">Guardar Ajustes</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
